@@ -3,7 +3,23 @@ import dash_core_components as dcc
 import dash_html_components as html
 import plotly.express as px
 
-app = dash.Dash(__name__)
+stylesheets = ["https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css",
+               "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap", ]
 
-if __name__ == '__main__':
+app = dash.Dash(__name__, external_stylesheets=stylesheets)
+
+app.layout = html.Div(
+    style={"backgroundColor": "#111111", "minHeight": "100vh",
+           "color": "white", "fontFamily": "Open Sans, sans-serif"},
+    children=[
+        html.Header(
+            style={"textAlign": "center", "paddingTop": "50px"},
+            children=[html.H1("Corona Dashboard", style={"fontSize": 40})],
+        )
+    ]
+
+
+)
+
+if __name__ == "__main__":
     app.run_server(debug=True)

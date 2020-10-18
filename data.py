@@ -11,6 +11,9 @@ countries_df = countries_df.groupby("Country_Region").sum().reset_index()
 
 conditions = ["confirmed", "deaths", "recovered"]
 
+dropdown_options = countries_df.sort_values("Country_Region").reset_index()
+dropdown_options = dropdown_options["Country_Region"]
+
 
 def make_country_df(country):
     def make_df(condition):
